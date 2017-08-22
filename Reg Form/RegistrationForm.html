@@ -1,0 +1,142 @@
+<html>
+<head>
+<title>Registration Form</title>
+
+</head>
+<body>
+<h1 align="center">Job Details:</h1>
+<form id="Form" action="RegistrationForm.html" method="post" enctype="application/x-www-form-urlencoded" onsubmit="selectAllOptions()">
+<table width= "700" border="1" align="center">
+
+<tr>
+<td align="right"> Job Title:</td>
+<td><input type="text" name="Job Title"> </td>
+</tr>
+ 
+<tr>
+<td align="right"> Description:</td> 
+<td><textarea></textarea><br><br>
+Brief Description should have at most 500 characters
+</td>
+</tr>
+
+<tr>
+<td align="right"> Company Name:</td> <td><input type="text" id="Company Name" name="Company Name"> </td>
+</tr>
+
+<tr>
+<td align="right"> Contact number:</td> <td><input type="text" id="Contact number" name="Contact number"> </td>
+</tr>
+
+<tr>
+<td align="right">Contact person:</td> <td><input type="text" id="Company person" name="Contact person"> </td>
+</tr>
+
+<tr>
+<td align="right">Email:</td> <td><input type="text" name="Email" id="EmailAddress" name="EmailAddress"> </td>
+</tr>
+
+<tr>
+<td align="right">Work Status:</td>
+<td>
+ <input type="checkbox" name="Full Time"> Full Time
+ <input type="checkbox" name="Part Time"> Part Time
+ <input type="checkbox" name="Per Dim"> Per Dim
+ <input type="checkbox" name="Others"> Others
+ </td>
+ </tr>
+
+<tr>
+<td align="right">Salary:</td> <td><input type="text" id="Salary" name="Salary">
+
+<select name="Currency">
+	<option value="US Dollar">US Dollar</option>
+	<option value="SG Dollar">SG Dollar</option>
+	<option value="HK Dollar">HK Dollar</option>
+	<option value="AU Dollar">AU Dollar</option>
+</select>
+
+<select name="Frequency">
+	<option value="Yearly">Yearly</option>
+	<option value="Monthly">Monthly</option>
+	<option value="Weekly">Weekly</option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td align="right">Experience(Years)</td> <td><input type="text" name="Experience(Years)"></td>
+</tr>
+
+<tr>
+<td align="right">Locations</td> <td><input type="text" name="Locations"></td>
+</tr>
+
+<tr>
+<td align="right">Qualifications:</td>
+<td>
+
+
+<select multiple="multiple" size="5" id="Qualifications">
+					<option value="Any">Any</option>
+					<option value="High School">High School</option>
+					<option value="Associate">Associate</option>
+					<option value="Pre Bachelors">Pre Bachelors</option>
+				</select>
+				
+
+				
+<button type="button" onclick="FunctionAdd()" name="placement">ADD>></button>
+
+<button type="button" onclick="FunctionRemove()">&lt&ltRemove</button>
+
+<select name="Qualifications[]" id="AddList" multiple="multiple" size="5" style="width:100px"></select>
+
+</td>
+</tr>
+
+
+<script>
+function FunctionAdd(){
+	var x = document.getElementById("Qualifications").selectedIndex
+
+	var node = document.getElementById("Qualifications").options[x].cloneNode(true)
+
+	document.getElementById("AddList").appendChild(node)
+}
+
+function FunctionReset() {
+	var qualificationsList = document.getElementById("AddList").length
+	for (var i=0; i<qualificationsList; i++) {
+		document.getElementById("AddList").options[0].remove()
+	}
+
+}
+
+function FunctionRemove() {
+	var x = document.getElementById("AddList").selectedIndex
+	
+	var node = document.getElementById("AddList").options[x].remove()
+}
+
+function selectAllOptions()	{
+	var selObj = document.getElementById("AddList");
+	for (var i=0; i<selObj.options.length; i++) {
+		selObj.options[i].selected = true;
+	}
+} 
+
+</script>
+
+<tr>
+<td align="right"><input type="Submit"></td>
+<td><input type="Reset" onclick="FunctionReset()"></td>
+</tr>
+
+</table>
+</form>
+</body>
+</html>
+
+
+
